@@ -39,49 +39,58 @@ This project is a backend API for a School Library Management System built using
 
 1. Install PostgreSQL:
    
-   1. Using Homebrew (Recommended for macOS):
-   Open your terminal and run the following command to install PostgreSQL:
+   1. Using Homebrew (Recommended for macOS):<br/>
+   
       ```bash
       brew install postgresql
    
    2. After installation, start PostgreSQL using:
+      
       ```bash
       brew services start postgresql
    3. Verify the installation by checking the PostgreSQL version:
+
       ```bash
       psql --version
       
 2. Access PostgreSQL with psql:
    1. Launch the PostgreSQL interactive terminal:
-      ```bash
+
+       ```bash
       psql postgres
-   2. Create a new database user (role) with a password:
-      ```bash
+   3. Create a new database user (role) with a password:
+
+       ```bash
       CREATE USER your_username WITH PASSWORD 'your_password';
-   3. Create the database for your project:
-      ```bash
+   5. Create the database for your project:
+
+       ```bash
       CREATE DATABASE school_library_management;
-   4. Grant all privileges to your user on the new database:
+   7. Grant all privileges to your user on the new database:
+
       ```bash
       GRANT ALL PRIVILEGES ON DATABASE school_library_management TO your_username;
       
 3. Update the database configuration in app/core/config.py:
+
       ```bash
       DATABASE_URL = "postgresql://username:password@localhost:5433/school_library_db"
 
 ## Running the Application
 
    1. To start the FastAPI server, run:
+      
       ```bash
       uvicorn app.main:app --reload
-   2. Once the server is running, you can access your API through the following URLs:
+   3. Once the server is running, you can access your API through the following URLs:
+      
       ```bash
       Base URL: http://127.0.0.1:8000
-   3. #### Swagger Documentation:
+   4. #### Swagger Documentation:
        Swagger UI is a popular tool for visualizing and interacting with your API. It provides a user-friendly interface where you can see all the available endpoints, their required        parameters, and try out the API directly from the browser. It’s a great way to explore and test your API's functionality.
       ```bash
       Swagger Documentation: http://127.0.0.1:8000/docs
-   4. ####Redoc Documentation:
+   5. ####Redoc Documentation:
       Redoc is another tool for generating interactive API documentation. It focuses on providing a clean and organized view of your API specifications, making it easy for developers       to understand and navigate through the API’s endpoints. Redoc is known for its detailed and customizable documentation layout.
       ```bash
       Redoc Documentation: http://127.0.0.1:8000/redoc
